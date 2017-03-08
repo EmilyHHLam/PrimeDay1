@@ -9,14 +9,22 @@ var employees = [atticus, jem, boo, scout, robert, mayella];
 
 
 function bonusCalc(employees) {
+  $(document).ready(function() {
+
+
   var newData = [];
     for (var i = 0; i<employees.length; i++){
       newData.push(processEmployee(employees[i]));
+
     }
-    console.log('new data' + newData);
+    console.log(newData);
     return newData;
 
+});
+
 }
+
+
 
 bonusCalc(employees);
 //magic number!
