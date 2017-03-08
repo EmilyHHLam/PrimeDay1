@@ -8,18 +8,18 @@ var mayella = ["Mayella", "89068", "35000", 2];
 var employees = [atticus, jem, boo, scout, robert, mayella];
 
 
+
 function bonusCalc(employees) {
   var newData = [];
     for (var i = 0; i<employees.length; i++){
       newData.push(processEmployee(employees[i]));
     }
-    console.log('new data' + newData);
+    cosole.log(newData);
     return newData;
 
 }
 
 bonusCalc(employees);
-//magic number!
 var max_bonus = 0.13;
 var bonus =0;
 function processEmployee(array){
@@ -31,45 +31,41 @@ function processEmployee(array){
     //The first index should also contain the employee's name
     newEmployeeInfo[0] = array[0];
 
-    //The second index should contain the bonus percentage the employee is to receive
-    bonus = bonusPercent(employeeNumb, employeeRate) + employeeSenior(employeeNumb) - highIncomeEmployee(employeeSalary);
 
-    //No bonus can be above 13% or below 0% total
+    //The second index should contain the bonus percentage the employee is to receive
+    // bonus = //rate +
+    // newEmployeeInfo[1]= bonusPercent(array[1], array[3]);
+
+    bonus = bonusPercent(employeeNumb, employeeRate) + employeeSenior(employeeNumb) + highIncomeEmployee();
     if (bonus > max_bonus) {
       bonus = max_bonus;
     }
-    newEmployeeInfo[1] = bonus;
-
     //the adjusted annual compensation (base annual + bonus)
-    newEmployeeInfo[2] = Math.round(employeeSalary*(1 + bonus)) ;
-
+    newEmployeeInfo[2] = adjustedAnnualIncome (array[2],newEmployeeInfo[1] ) ;
     //employee's total bonus rounded to the nearest dollar
-   newEmployeeInfo[3] = Math.round(employeeSalary*bonus);
+    newEmployeeInfo[3] = Math.round(this.newEmployeeInfo[1]*100);
 
 return newEmployeeInfo;
 }
+function adjustedAnnualIncome()
+{
+  console.log (array[2] += array[2]*this.newEmployeeInfo[1]*100);
+}
 
-//calculate the rate of seniority who stays at the company 15 yrs or more
+
+
 function employeeSenior(employeeID) {
   var seniorityRate = 0;
-  if (employeeID.length ===4){
+  if (employeeID.length === 4) {
     seniorityRate = 0.05;
   }
   return seniorityRate;
 }
-//calculate the rate of the employees who gets paid higher than 65,000
-function highIncomeEmployee(employeeSalary) {
-  var highPaidRate = 0;
-  employeeSalary = parseInt(employeeSalary);
-  if (employeeSalary > 65000){
-    highPaidRate = 0.01;
-  }
-  return highPaidRate;
-}
 
 
-//calculate the standard bonus
 function bonusPercent(employeeID, employeeRate) {
+console.log(employeeID);
+console.log(employeeRate);
 var bonusRate;
 switch (employeeRate) {
   case 1: bonusRate = 0; break;
@@ -78,5 +74,13 @@ switch (employeeRate) {
   case 4: bonusRate =0.06; break;
   case 5: bonusRate = 0.10; break;
   }
-return bonusRate;
+
+  if (employeeID.length < 5) {
+    return bonusRate +=0.5;
+  }
+  else {
+    return bonusRate;
+  }
+
+
 }
