@@ -9,7 +9,7 @@ var employees = [atticus, jem, boo, scout, robert, mayella];
 
 
 function bonusCalc(employees) {
-  $(document).ready(function() {
+
 
 
   var newData = [];
@@ -20,10 +20,8 @@ function bonusCalc(employees) {
     console.log(newData);
     return newData;
 
-});
 
 }
-
 
 
 bonusCalc(employees);
