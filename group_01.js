@@ -43,6 +43,8 @@ function processEmployee(array){
     //No bonus can be above 13% or below 0% total
     if (bonus > max_bonus) {
       bonus = max_bonus;
+    } else if (bonus < 0){
+      bonus = 0;
     }
     newEmployeeInfo[1] = bonus;
 
